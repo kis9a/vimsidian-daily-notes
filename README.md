@@ -1,5 +1,8 @@
 # vimsidian-daily-notes
 
+* [Daily notes - Obsidian Help](https://help.obsidian.md/Plugins/Daily+notes)
+* [GitHub - kis9a/vimsidian: Vim plugin for PKM like obsidian.md](https://github.com/kis9a/vimsidian)
+
 ## Installation
 
 Use your favorite plugin manager.
