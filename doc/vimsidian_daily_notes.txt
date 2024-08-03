@@ -1,0 +1,81 @@
+*vimsidian_daily_notes.txt*
+
+*vimsidian_daily_notes*
+
+AUTHOR: *kis9a* <kis9ax@gmail.com>
+REPOSITORY: https://github.com/kis9a/vimsidian-daily-notes
+LICENSE: WTFPL
+
+==============================================================================
+REQUIREMENTS                              *vimsidian_daily_notes_requirements*
+
+Required plugins:
+  vimsidian: https://github.com/kis9a/vimsidian
+
+Required variables:
+  let g:vimsidian_path = 0
+
+==============================================================================
+VARIABLES                                    *vimsidian-daily-notes-variables*
+
+|g:vimsidian_daily_note_path|
+|g:vimsidian_daily_note_template_path|
+|g:vimsidian_daily_note_date_format|
+
+------------------------------------------------------------------------------
+                                                 *g:vimsidian_daily_note_path*
+
+  let g:vimsidian_daily_note_path = g:vimsidian_path
+
+Path to create daily notes
+
+------------------------------------------------------------------------------
+                                          *g:vimsidian_daily_note_date_format*
+
+  let g:vimsidian_daily_note_date_format = '%Y-%m-%d'
+
+Date format, For more syntax, refer to (:h strftime).
+Default syntax looks like: 2022-01-01
+
+------------------------------------------------------------------------------
+                                        *g:vimsidian_daily_note_template_path*
+
+  let g:vimsidian_daily_note_template_path = g:vimsidian_daily_note_path
+
+Path of the daily note template. Some parameters described in the template
+file can be converted. Available parameters are listed below.
+
+  let now = localtime()
+  let aday = (60 * 60 * 24)
+
+Parameters:
+  {{date}}: strftime(g:vimsidian_daily_note_date_format)
+  {{day}}: strftime("%d", now)
+  {{month}}: strftime("%m", now)
+  {{year}}: strftime("%Y", now)
+  {{previous_date}}: strftime(g:vimsidian_daily_note_date_format, now - aday)
+  {{next_date}}: strftime(g:vimsidian_daily_note_date_format, now + aday)
+  {{day_of_week}}: strftime("%A", now)
+
+
+==============================================================================
+COMMANDS                                      *vimsidian_daily_notes-commands*
+
+|:VimsidianDailyNote|
+
+------------------------------------------------------------------------------
+                                                        *vimsidian_daily_note*
+
+  :VimsidianDailyNote
+
+Create a new daily note based on |g:vimsidian_daily_note_template_path|
+in |g:vimsidian_daily_note_path|. If the note already exists, open it.
+
+
+==============================================================================
+EXAMPLES                                      *vimsidian_daily_notes_examples*
+
+nnoremap <buffer> sd :VimsidianDailyNote<CR>
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl
