@@ -17,14 +17,14 @@ function! vimsidian#daily_notes#open() abort
       let s = vimsidian#daily_notes#replaceParametrizedString("[[{{date}}]]\n\n< [[{{previous_date}}]] | [[{{next_date}}]] >\n\n")
       call s:writeFile(split(s, "\n"), dnote, 'b')
     endif
-    call s:openFile(g:vimsidian_link_open_mode, dnote)
+    call s:openFile(g:vimsidian_daily_note_open_mode, dnote)
   else
     if empty(glob(dnote))
       let r = join(vimsidian#action#ReadFile(g:vimsidian_daily_note_template_path), "\n")
       let r = vimsidian#daily_notes#replaceParametrizedString(r)
       call s:writeFile(split(r, "\n"), dnote, 'b')
     endif
-    call s:openFile(g:vimsidian_link_open_mode, dnote)
+    call s:openFile(g:vimsidian_daily_note_open_mode, dnote)
   endif
 endfunction
 

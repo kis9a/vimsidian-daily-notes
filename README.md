@@ -39,6 +39,22 @@ The template file can use some parameters. (:h g:vimsidian_daily_note_template_p
 [[{{year}}-{{month}}]] [[{{day}}]] [[{{day_of_week}}]]
 ```
 
+### Change daily note open mode
+
+```vim
+" default
+let g:vimsidian_daily_note_open_mode = 'e!'
+
+" newtab
+let g:vimsidian_daily_note_open_mode = 'newtab'
+
+" vsplit
+let g:vimsidian_daily_note_open_mode = 'vnew'
+
+" hsplit
+let g:vimsidian_daily_note_open_mode = 'new'
+```
+
 ## LICENSE
 
 [WTFPL license - Do What The F\*ck You Want To Public License](./LICENSE.md)

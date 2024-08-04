@@ -23,6 +23,10 @@ if !exists('g:vimsidian_daily_note_date_format')
   let g:vimsidian_daily_note_date_format = '%Y-%m-%d'
 endif
 
+if !exists('g:vimsidian_daily_note_open_mode')
+  let g:vimsidian_daily_note_open_mode = 'e!'
+endif
+
 command! VimsidianDailyNote call vimsidian#daily_notes#open()
 
 let g:loaded_vimsidian_daily_notes_plugin = 1
